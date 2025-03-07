@@ -14,25 +14,23 @@
             color: white;
             font-family: Arial, sans-serif;
         }
-        video {
+        iframe {
             transform: scaleX(-1);
             width: 80%;
             max-width: 800px;
+            height: 450px;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <video id="player" controls autoplay>
-        <source id="videoSource" src="" type="video/mp4">
-        Ваш браузер не поддерживает тег видео.
-    </video>
+    <iframe id="videoFrame" src="" allowfullscreen></iframe>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const videoUrl = urlParams.get('video');
         if (videoUrl) {
-            document.getElementById('videoSource').src = videoUrl;
-            document.getElementById('player').load();
+            document.getElementById('videoFrame').src = videoUrl;
         } else {
             document.body.innerHTML = '<h2>Ошибка: видео не найдено</h2>';
         }
