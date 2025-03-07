@@ -7,30 +7,36 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background-color: #181818;
             color: white;
             font-family: Arial, sans-serif;
+            text-align: center;
         }
-        iframe {
-            transform: scaleX(-1);
-            width: 80%;
-            max-width: 800px;
-            height: 450px;
-            border: none;
+        a {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 18px;
+            color: white;
+            background: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <iframe id="videoFrame" src="" allowfullscreen></iframe>
+    <h2>Нажмите кнопку ниже, чтобы открыть видео:</h2>
+    <a id="videoLink" href="#" target="_blank">Открыть видео</a>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const videoUrl = urlParams.get('video');
         if (videoUrl) {
-            document.getElementById('videoFrame').src = videoUrl;
+            document.getElementById('videoLink').href = videoUrl;
         } else {
             document.body.innerHTML = '<h2>Ошибка: видео не найдено</h2>';
         }
