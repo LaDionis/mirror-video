@@ -34,8 +34,8 @@
     </style>
 </head>
 <body>
-    <h2>Нажмите кнопку ниже, чтобы открыть видео:</h2>
-    <a id="videoLink" href="#" target="_blank">Открыть видео</a>
+    <h2>Переход на видео...</h2>
+    <a id="videoLink" href="#" target="_blank">Открыть видео вручную</a>
     <p id="debug"></p>
 
     <script>
@@ -45,6 +45,11 @@
         if (videoUrl) {
             document.getElementById('videoLink').href = videoUrl;
             document.getElementById('debug').innerText = "Видео URL: " + videoUrl;
+            
+            // Автоматический переход через 2 секунды
+            setTimeout(() => {
+                window.location.href = videoUrl;
+            }, 2000);
         } else {
             document.getElementById('debug').innerText = "Ошибка: параметр 'video' не найден в URL";
         }
