@@ -26,19 +26,27 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+        #debug {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
     <h2>Нажмите кнопку ниже, чтобы открыть видео:</h2>
     <a id="videoLink" href="#" target="_blank">Открыть видео</a>
+    <p id="debug"></p>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const videoUrl = urlParams.get('video');
+        
         if (videoUrl) {
             document.getElementById('videoLink').href = videoUrl;
+            document.getElementById('debug').innerText = "Видео URL: " + videoUrl;
         } else {
-            document.body.innerHTML = '<h2>Ошибка: видео не найдено</h2>';
+            document.getElementById('debug').innerText = "Ошибка: параметр 'video' не найден в URL";
         }
     </script>
 </body>
